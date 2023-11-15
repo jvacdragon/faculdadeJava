@@ -31,10 +31,6 @@ public class Main {
             minhaListaOrdenavel.add(p);
         }
 
-        for(PessoaIMC p : minhaListaOrdenavel.getLista()){
-            System.out.println(p.getNome() + " " + p.getSobrenome());
-        }
-
         int opcaoInicio = -1;
         int opcaoMeio;
         String opcao1 = """
@@ -63,19 +59,23 @@ public class Main {
                 --------------------------------
                 """;
         while(opcaoInicio != 0){
-            System.out.println(opcao1);
-            Scanner scan = new Scanner(System.in);
-            opcaoInicio = Integer.parseInt(scan.next());
+            try {
+                System.out.println(opcao1);
+                Scanner scan = new Scanner(System.in);
+                opcaoInicio = Integer.parseInt(scan.next());
 
-            if(opcaoInicio == 1){
-                System.out.println(opcao2);
-                opcaoMeio = Integer.parseInt(scan.next());
-                minhaListaOrdenavel.ordena(opcaoMeio);
-                for(PessoaIMC p : minhaListaOrdenavel.getLista()){
-                    System.out.println("-".repeat(40));
-                    System.out.println(p.toString());
-                    System.out.println("-".repeat(40));
+                if (opcaoInicio == 1) {
+                    System.out.println(opcao2);
+                    opcaoMeio = Integer.parseInt(scan.next());
+                    minhaListaOrdenavel.ordena(opcaoMeio);
+                    for (PessoaIMC p : minhaListaOrdenavel.getLista()) {
+                        System.out.println("-".repeat(40));
+                        System.out.println(p.toString());
+                        System.out.println("-".repeat(40));
+                    }
                 }
+            } catch(NumberFormatException e){
+                System.out.println("Favor inserir número válido.");
             }
         }
     }

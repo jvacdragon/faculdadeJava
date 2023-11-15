@@ -31,7 +31,7 @@ public abstract class PessoaIMC extends Pessoa {
         format.setCalendar(this.getDataNasc());
         String datef = format.format(this.getDataNasc().getTime());
 
-        return "Nome: " + this.getNome() + this.getSobrenome() +
+        return "Nome: " + this.getNome() + " " + this.getSobrenome() +
                 "\nData de Nascimento: " + datef+
                 "\nPeso: " + String.format("%.2f", this.getPeso()) +
                 "\nAltura: " +String.format("%.2f",this.getAltura())+
